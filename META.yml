@@ -1,0 +1,14 @@
+--- #YAML:1.0
+name:                HeliosX-ExtLoggerService
+version:             0.02_0761
+abstract:            Alternative Helios::Service class to log to external logging systems
+license:             ~
+author:              
+    - A. U. Thor <a.u.thor@a.galaxy.far.far.away>
+generated_by:        ExtUtils::MakeMaker version 6.44
+distribution_type:   module
+requires:     
+    Helios:                        2
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3

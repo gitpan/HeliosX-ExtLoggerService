@@ -1,0 +1,13 @@
+Changes
+lib/HeliosX/ExtLoggerService.pm
+lib/HeliosX/LogEntry/Levels.pm
+lib/HeliosX/Logger.pm
+lib/HeliosX/Logger/Internal.pm
+lib/HeliosX/Logger/Log4perl.pm
+lib/HeliosX/Logger/LoggingError.pm
+lib/HeliosX/Logger/Syslog.pm
+Makefile.PL
+MANIFEST
+README
+t/HeliosX-ExtLoggerService.t
+META.yml                                 Module meta-data (added by MakeMaker)
