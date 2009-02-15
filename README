@@ -1,17 +1,15 @@
-HeliosX-ExtLoggerService version 0.01
+HeliosX-ExtLoggerService version 0.02
 =====================================
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+HeliosX::ExtLoggerService is a Helios::Service subclass providing a 
+more advanced logging subsystem to Helios applications.  It overrides 
+the Helios::Service->logMsg() method with a new, more advanced method. 
+It also provides a standard base class, HeliosX::Logger, that can be 
+extended to write interface shims to various logging systems.  The 
+logging to these systems can be controlled through several new 
+helios.ini options globally or on an application-by-application basis.
 
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
-
+  
 INSTALLATION
 
 To install this module type the following:
@@ -25,11 +23,9 @@ DEPENDENCIES
 
 This module requires these other modules and libraries:
 
-  blah blah blah
+  Helios 2.00
 
 COPYRIGHT AND LICENSE
-
-Put the correct copyright and licence information here.
 
 Copyright (C) 2009 by Andrew Johnson, except as noted.
 
@@ -40,4 +36,3 @@ at your option, any later version of Perl 5 you may have available.
 HeliosX::Logger::Internal contains code that is (C) 2008 CEB Toolbox, 
 Inc.  See the lib/HeliosX/Logger/Internal.pm file for copyright 
 information.
-

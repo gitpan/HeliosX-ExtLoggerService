@@ -1,6 +1,10 @@
 Revision history for Perl extension HeliosX::ExtLoggerService.
 
-0.01  Sat Nov  8 17:08:55 2008
-	- original version; created by h2xs 1.23 with options
-		-XA -b 5.8.0 HeliosX::ExtLoggerService
+0.02_0771  Sun Feb 15 12:00:00 2009
+    - second public release, actually works!
+    - lots of documentation!  Some of it even coherent!
+    - HeliosX::Logger::Syslog and HeliosX::Logger::Log4perl separated 
+      into their own distributions
+0.02_0761  Sat Feb 14 05:00:00 2009
+    - first public release; didn't actually work
 

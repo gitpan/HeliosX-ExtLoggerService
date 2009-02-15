@@ -2,7 +2,7 @@ package HeliosX::Logger::LoggingError;
 
 use base qw(Error::Simple);
 
-our $VERSION = '0.01_45_7';
+our $VERSION = '0.02_0771';
 
 1;
 __END__;

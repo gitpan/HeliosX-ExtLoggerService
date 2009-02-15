@@ -1,10 +1,10 @@
 --- #YAML:1.0
 name:                HeliosX-ExtLoggerService
-version:             0.02_0761
-abstract:            Alternative Helios::Service class to log to external logging systems
-license:             ~
+version:             0.02_0771
+abstract:            Helios::Service class to allow Helios logging to external logging systems
+license:             perl
 author:              
-    - A. U. Thor <a.u.thor@a.galaxy.far.far.away>
+    - Andrew Johnson <lajandy at cpan dotorg>
 generated_by:        ExtUtils::MakeMaker version 6.44
 distribution_type:   module
 requires:     

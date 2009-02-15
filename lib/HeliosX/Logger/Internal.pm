@@ -1,4 +1,4 @@
-package HeliosX::Logger;
+package HeliosX::Logger::Internal;
 
 use 5.008;
 use base qw(HeliosX::Logger);
@@ -8,9 +8,8 @@ use warnings;
 use Error qw(:try);
 
 use HeliosX::LogEntry::Levels qw(:all);
-use HeliosX::Logger::LoggingError;
 
-our $VERSION = '0.02_0761';
+our $VERSION = '0.02_0771';
 
 =head1 NAME
 
@@ -18,40 +17,39 @@ HeliosX::Logger::Internal - HeliosX::Logger subclass reimplementing Helios inter
 
 =head1 SYNOPSIS
 
- loggers=HeliosX::Logger::Internal
+ #in your service class
+ package MyService;
+ use base qw(HeliosX::ExtLoggerService);
+ 
+ #in helios.ini, enable internal Helios logging (this is default)
+ internal_logger=on
+ 
+ #in helios.ini, turn off internal logging
+ internal_logger=off
+
 
 =head1 DESCRIPTION
 
-This module is not yet complete, thus the documentation is not yet complete.
+HeliosX::Logger::Internal is a refactor of the logging functionality found in 
+Helios::Service->logMsg().  This allows HeliosX::ExtLoggerService-based services to retain 
+logging functionality found in the core Helios system while also taking advantage of external 
+logging systems implemented by other subclasses of HeliosX::Logger.
 
-
-
-=cut
-
-=head1 ACCESSOR METHODS
-
-=cut
-
-sub setConfig { $_[0]->{config} = $_[1]; }
-sub getConfig { return $_[0]->{config}; }
-
-sub setJobType { $_[0]->{jobtype} = $_[1]; }
-sub getJobType { return $_[0]->{jobtype}; }
-
-
-
-=head1 METHODS
+=head1 IMPLEMENTED METHODS
 
 =head2 init()
 
+HeliosX::Logger::Internal->init() is empty, as an initialization step is unnecessary.
+
 =cut
 
-sub init {
-	# no initialization required for the Helios internal logging system
-}
+sub init { }
 
 
-=head2 logMsg()
+=head2 logMsg($job, $priority_level, $message)
+
+Implementation of the Helios::Service internal logging code refactored into a 
+HeliosX::Logger class.  
 
 =cut
 
@@ -112,6 +110,25 @@ sub logMsg {
 	return 1;
 }
 
+=head1 OTHER METHODS
+
+=head2 getDriver()
+
+Returns a Data::ObjectDriver object for use with the Helios database.
+
+=cut
+
+sub getDriver {
+    my $self = shift;
+    my $config = $self->getConfig();
+    my $driver = Data::ObjectDriver::Driver::DBI->new(
+        dsn      => $config->{dsn},
+        username => $config->{user},
+        password => $config->{password}
+    );  
+    return $driver; 
+}
+
 
 1;
 __END__
@@ -119,7 +136,7 @@ __END__
 
 =head1 SEE ALSO
 
-L<Helios::ExtLoggerService>
+L<HeliosX::ExtLoggerService>, L<HeliosX::Logger>
 
 =head1 AUTHOR
 
